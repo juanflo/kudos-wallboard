@@ -10,6 +10,10 @@
     padding-right: 40px;
 }
 
+#root .ui.card>.kudos .content {
+    width:100%;
+}
+
 #root .kudos .header,
 #root .kudos .meta {
     font-size: 75px;
