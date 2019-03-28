@@ -6,12 +6,19 @@
     height: 100%;
     display: flex;
     align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 #root .kudos .header,
 #root .kudos .meta {
     font-size: 75px;
-    line-height: 81px;
+    line-height: 87px;
+}
+
+#root .kudos .description {
+    font-size: 28px;
+    line-height: 40px;
 }
 
 /*

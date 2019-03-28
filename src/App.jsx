@@ -13,19 +13,12 @@ const App = () => (
         <Card.Header>Matt Wong</Card.Header>
         <Card.Meta>From: Juan</Card.Meta>
         <Card.Description>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu
-          sollicitudin felis, a vehicula eros. Ut vel rutrum mauris, et
-          tristique leo. Duis sodales dictum libero, eget eleifend urna tempus
-          vel. Integer sit amet ornare augue, a ultricies magna. Ut convallis
-          fermentum eros, vitae lacinia lorem laoreet non. Class aptent taciti
-          sociosqu ad litora torquent per conubia nostra, per inceptos
-          himenaeos. Suspendisse potenti. Nulla sem odio, ultricies vel eros at,
-          efficitur pellentesque sapien. Integer ante tortor, vehicula et cursus
-          ac, consectetur nec nisl. Nullam vel sem dignissim ex sagittis
-          interdum eu a sem. Duis sit amet nibh aliquam, molestie sem sit amet,
-          pulvinar turpis. Sed semper arcu non lacinia volutpat. Suspendisse
-          auctor, quam sit amet imperdiet pretium, dui dolor mollis urna, vel
-          hendrerit eros metus faucibus sem.
+          Alan Rails, ladies and gentlemen. After his parents' tragic death in a
+          railroad accident, he gained the power to summon ghost trains. It's
+          not all bad though, they were spared having to see their grown son
+          wear a whistle. Yeah, sure, I mean, if you spend all day shuffling
+          words around, you can make anything sound bad. This isn't Game of
+          Thrones, Morty. Aww, gee, you got me there, Rick.
         </Card.Description>
       </Card.Content>
     </div>
