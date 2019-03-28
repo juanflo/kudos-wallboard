@@ -1,0 +1,23 @@
+#root, .ui.card {
+    height: 100%;
+}
+
+#root .ui.card>.kudos {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#root .kudos .header,
+#root .kudos .meta {
+    font-size: 75px;
+    line-height: 81px;
+}
+
+/*
+46px
+20px;
+
+163px;
+75
+*/
