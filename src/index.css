@@ -11,13 +11,13 @@
 }
 
 #root .ui.card>.kudos .content {
-    width:100%;
+    width: 100%;
 }
 
 #root .kudos .header,
 #root .kudos .meta {
     font-size: 75px;
-    line-height: 87px;
+    line-height: 82px;
 }
 
 #root .kudos .description {

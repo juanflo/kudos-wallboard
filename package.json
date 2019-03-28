@@ -1,4 +1,5 @@
 {
+  "proxy": "http://kudo-judo.herokuapp.com",
   "name": "kudos-wallboard",
   "version": "0.1.0",
   "private": true,
