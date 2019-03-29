@@ -1,31 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import KudosCard from 'KudosCard';
 
-const getMessages = async (kudos, setKudos) => {
-  if (kudos.length === 0) {
-    const response = await fetch('/messages');
-    const messages = await response.json();
+class App extends React.Component {
+  state = {
+    kudos: null,
+    currentKudo: null
+  };
 
-    setKudos(messages);
+  async updateDisplay() {
+    let { kudos } = this.state;
+
+    if (!(kudos && kudos.length > 0)) {
+      kudos = await App.getKudos();
+    }
+    const currentKudo = kudos.pop();
+    this.setState({
+      kudos,
+      currentKudo
+    });
+    setTimeout(() => this.updateDisplay(), 5000);
   }
-};
 
-const App = () => {
-  const [kudos, setKudos] = useState([]);
-  const kudo = kudos[0];
+  async componentDidMount() {
+    const kudos = await App.getKudos();
+    const currentKudo = kudos.pop();
+    this.setState({
+      kudos,
+      currentKudo
+    });
 
-  useEffect(() => {
-    getMessages(kudos, setKudos);
-  }, [kudos]);
+    setTimeout(() => this.updateDisplay(), 5000);
+  }
 
-  return kudo ? (
-    <KudosCard
-      src={kudo.recipient.image}
-      author={kudo.author.name}
-      recipient={kudo.recipient.name}
-      message={kudo.text}
-    />
-  ) : null;
-};
+  static getKudos = async () => {
+    const response = await fetch('/messages');
+    const kudos = await response.json();
+    return kudos;
+  };
+
+  render() {
+    const { currentKudo } = this.state;
+
+    return currentKudo ? (
+      <KudosCard
+        src={currentKudo.recipient.image}
+        author={currentKudo.author.name}
+        recipient={currentKudo.recipient.name}
+        message={currentKudo.text}
+      />
+    ) : null;
+  }
+}
 
 export default App;
