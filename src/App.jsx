@@ -40,9 +40,7 @@ class App extends React.Component {
   }
 
   static getKudos = async (host) => {
-    const response = await fetch(`${host}/messages`, {
-      mode: 'no-cors'
-    });
+    const response = await fetch(`${host}/messages`);
     const kudos = await response.json();
     return kudos;
   };
