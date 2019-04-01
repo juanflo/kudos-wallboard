@@ -7,6 +7,13 @@ class App extends React.Component {
     currentKudo: null
   };
 
+  constructor(props) {
+    super(props);
+
+    this.TRANSITION_TIMER = (process.env.REACT_APP_TRANSISTION_TIMER || 5) * 1000;
+  }
+
+
   async updateDisplay() {
     let { kudos } = this.state;
 
@@ -18,7 +25,7 @@ class App extends React.Component {
       kudos,
       currentKudo
     });
-    setTimeout(() => this.updateDisplay(), 5000);
+    setTimeout(() => this.updateDisplay(), this.TRANSITION_TIMER);
   }
 
   async componentDidMount() {
@@ -29,7 +36,7 @@ class App extends React.Component {
       currentKudo
     });
 
-    setTimeout(() => this.updateDisplay(), 5000);
+    setTimeout(() => this.updateDisplay(), this.TRANSITION_TIMER);
   }
 
   static getKudos = async () => {
