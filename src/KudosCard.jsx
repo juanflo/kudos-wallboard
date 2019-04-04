@@ -2,12 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'semantic-ui-react';
 
-const KudosCard = ({ src, recipient, author, message }) => (
+const KudosCard = ({ src, recipients, author, message }) => (
   <Card fluid>
     <div className="kudos">
       <Card.Content>
         <Image floated="left" src={src} size="small" />
-        <Card.Header>{recipient}</Card.Header>
+        <Card.Header>
+          To:&nbsp;
+          {recipients.map(recipient => {
+            return recipient.name;
+        }).join(', ')}
+        </Card.Header>
         <Card.Meta>
           From:&nbsp;
           {author}
@@ -20,7 +25,9 @@ const KudosCard = ({ src, recipient, author, message }) => (
 
 KudosCard.propTypes = {
   src: PropTypes.string.isRequired,
-  recipient: PropTypes.string.isRequired,
+  recipients: PropTypes.arrayOf(
+      PropTypes.object.isRequired
+  ).isRequired,
   author: PropTypes.string.isRequired,
   message: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),

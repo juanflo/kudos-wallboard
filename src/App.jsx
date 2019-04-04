@@ -47,12 +47,15 @@ class App extends React.Component {
 
   render() {
     const { currentKudo } = this.state;
-
+    let randomImageIndex = 0;
+    if (currentKudo) {
+      randomImageIndex = Math.floor(Math.random() * currentKudo.recipients.length);
+    }
     return currentKudo ? (
       <KudosCard
-        src={currentKudo.recipients[0].image}
+        src={currentKudo.recipients[randomImageIndex].image}
         author={currentKudo.author.name}
-        recipient={currentKudo.recipients[0].name}
+        recipients={currentKudo.recipients}
         message={currentKudo.text}
       />
     ) : null;
