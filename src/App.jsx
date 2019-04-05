@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.TRANSITION_TIMER = (process.env.REACT_APP_TRANSISTION_TIMER || 5) * 1000;
     this.API_HOST = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_API_HOST : '';
-    this.AUTHORIZATION_TOKEN = process.env.REACT_APP_AUTHORIZATION_TOKEN || '';
+    this.AUTHORIZATIONTOKEN = process.env.REACT_APP_AUTHORIZATION_TOKEN || '';
   }
 
 
@@ -21,7 +21,7 @@ class App extends React.Component {
 
     if (!(kudos && kudos.length > 0)) {
       kudos = collection.shuffle(await App.getKudos(this.API_HOST, {
-        Authorization: this.AUTHORIZATION_TOKEN
+        Authorization: this.AUTHORIZATIONTOKEN
       }));
     }
     const currentKudo = kudos.pop();
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   async componentDidMount() {
     let kudos = collection.shuffle(await App.getKudos(this.API_HOST, {
-      Authorization: this.AUTHORIZATION_TOKEN
+      Authorization: this.AUTHORIZATIONTOKEN
     }));
     const currentKudo = kudos.pop();
     this.setState({
