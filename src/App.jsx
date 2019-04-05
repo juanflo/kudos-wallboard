@@ -13,7 +13,6 @@ class App extends React.Component {
     this.TRANSITION_TIMER = (process.env.REACT_APP_TRANSISTION_TIMER || 5) * 1000;
     this.API_HOST = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_API_HOST : '';
     this.AUTHORIZATIONTOKEN = process.env.REACT_APP_AUTHORIZATION_TOKEN || '';
-    console.log(JSON.stringify(process.env));
   }
 
 
