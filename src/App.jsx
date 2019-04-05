@@ -12,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.TRANSITION_TIMER = (process.env.REACT_APP_TRANSISTION_TIMER || 5) * 1000;
     this.API_HOST = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_API_HOST : '';
+    this.AUTHORIZATION_TOKEN = process.env.REACT_APP_AUTHORIZATION_TOKEN || '';
   }
 
 
@@ -19,7 +20,9 @@ class App extends React.Component {
     let { kudos } = this.state;
 
     if (!(kudos && kudos.length > 0)) {
-      kudos = collection.shuffle(await App.getKudos(this.API_HOST));
+      kudos = collection.shuffle(await App.getKudos(this.API_HOST, {
+        Authorization: this.AUTHORIZATION_TOKEN
+      }));
     }
     const currentKudo = kudos.pop();
     this.setState({
@@ -30,7 +33,9 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    let kudos = collection.shuffle(await App.getKudos(this.API_HOST));
+    let kudos = collection.shuffle(await App.getKudos(this.API_HOST, {
+      Authorization: this.AUTHORIZATION_TOKEN
+    }));
     const currentKudo = kudos.pop();
     this.setState({
       kudos,
@@ -40,8 +45,10 @@ class App extends React.Component {
     setTimeout(() => this.updateDisplay(), this.TRANSITION_TIMER);
   }
 
-  static getKudos = async (host) => {
-    const response = await fetch(`${host}/messages`);
+  static getKudos = async (host, headers) => {
+    const response = await fetch(`${host}/messages`, {
+      headers
+    });
     const kudos = await response.json();
     return kudos;
   };
