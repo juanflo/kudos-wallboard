@@ -1,5 +1,6 @@
 import React from 'react';
 import KudosCard from 'KudosCard';
+import collection from 'lodash/collection';
 
 class App extends React.Component {
   state = {
@@ -10,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.TRANSITION_TIMER = (process.env.REACT_APP_TRANSISTION_TIMER || 5) * 1000;
-    this.API_HOST = (process.env.NODE_ENV === 'production') ? 'http://kudo-judo.herokuapp.com' : '';
+    this.API_HOST = (process.env.NODE_ENV === 'production') ? process.env.REACT_APP_API_HOST : '';
   }
 
 
@@ -18,7 +19,7 @@ class App extends React.Component {
     let { kudos } = this.state;
 
     if (!(kudos && kudos.length > 0)) {
-      kudos = await App.getKudos(this.API_HOST);
+      kudos = collection.shuffle(await App.getKudos(this.API_HOST));
     }
     const currentKudo = kudos.pop();
     this.setState({
@@ -29,7 +30,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const kudos = await App.getKudos(this.API_HOST);
+    let kudos = collection.shuffle(await App.getKudos(this.API_HOST));
     const currentKudo = kudos.pop();
     this.setState({
       kudos,
