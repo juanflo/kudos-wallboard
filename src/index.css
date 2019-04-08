@@ -16,14 +16,26 @@
 
 #root .kudos .header,
 #root .kudos .meta {
-    font-size: 75px;
+    font-size: 5em;
     line-height: 82px;
 }
 
-#root .kudos,
-#root .kudos .meta {
+#root .kudos {
     background-color: #222;
     color: lightgray;
+}
+
+#root .kudos .meta {
+    font-size: 3em;
+    color: lightgray;
+}
+
+#root .name-label {
+    color: #ffd003;
+}
+#root .kudos .name-label,
+#root .kudos .name {
+    display: inline;
 }
 
 #root .kudos .description {
