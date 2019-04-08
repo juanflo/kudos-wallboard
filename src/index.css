@@ -20,11 +20,24 @@
     line-height: 82px;
 }
 
+#root .kudos,
+#root .kudos .meta {
+    background-color: #222;
+    color: lightgray;
+}
+
 #root .kudos .description {
     font-size: 28px;
     line-height: 40px;
 }
 
+#root .all-reactions {
+    margin: 15px;
+}
+
+#root .reaction {
+    margin: 15px;
+}
 /*
 46px
 20px;

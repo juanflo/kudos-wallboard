@@ -65,6 +65,7 @@ class App extends React.Component {
         author={currentKudo.author.name}
         recipients={currentKudo.recipients}
         message={currentKudo.text}
+        reactions={currentKudo.reactions}
       />
     ) : null;
   }
