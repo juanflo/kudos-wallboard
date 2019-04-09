@@ -2,6 +2,11 @@
     height: 100%;
 }
 
+#root .ui.fluid.card {
+    margin: 0px;
+    border-radius: 0rem;
+}
+
 #root .ui.card>.kudos {
     height: 100%;
     display: flex;
@@ -23,6 +28,7 @@
 #root .kudos {
     background-color: #222;
     color: lightgray;
+    border-radius: 0rem;
 }
 
 #root .kudos .meta {

@@ -8,6 +8,7 @@
     "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
+    "react-confetti": "^2.7.3",
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8",
     "semantic-ui-css": "^2.4.1",

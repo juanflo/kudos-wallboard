@@ -1,4 +1,5 @@
 import React from 'react';
+import Confetti from 'react-confetti';
 import KudosCard from 'KudosCard';
 import collection from 'lodash/collection';
 
@@ -60,13 +61,16 @@ class App extends React.Component {
       randomImageIndex = Math.floor(Math.random() * currentKudo.recipients.length);
     }
     return currentKudo ? (
-      <KudosCard
-        src={currentKudo.recipients[randomImageIndex].image}
-        author={currentKudo.author.name}
-        recipients={currentKudo.recipients}
-        message={currentKudo.text}
-        reactions={currentKudo.reactions}
-      />
+      <>
+        <Confetti recycle={false} key={Math.random()}/>
+        <KudosCard
+          src={currentKudo.recipients[randomImageIndex].image}
+          author={currentKudo.author.name}
+          recipients={currentKudo.recipients}
+          message={currentKudo.text}
+          reactions={currentKudo.reactions}
+        />
+      </>
     ) : null;
   }
 }
