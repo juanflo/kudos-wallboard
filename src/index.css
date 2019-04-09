@@ -4,7 +4,7 @@
 
 #root .ui.fluid.card {
     margin: 0px;
-    border-radius: 0rem;
+    border-radius: 0;
 }
 
 #root .ui.card>.kudos {
@@ -28,7 +28,7 @@
 #root .kudos {
     background-color: #222;
     color: lightgray;
-    border-radius: 0rem;
+    border-radius: 0 !important;
 }
 
 #root .kudos .meta {
